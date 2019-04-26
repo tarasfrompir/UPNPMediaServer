@@ -82,7 +82,7 @@ function __construct() {
  upnpmediaservers_playlist: GENRE varchar(50) NOT NULL DEFAULT ''
  upnpmediaservers_playlist: URL_LINK varchar(250) NOT NULL DEFAULT ''
  upnpmediaservers_playlist: LINKED_OBJECT varchar(100) NOT NULL DEFAULT ''
- mediaservers_playlist: FAVORITE int(3) unsigned NOT NULL DEFAULT 0 
+ upnpmediaservers_playlist: FAVORITE int(3) unsigned NOT NULL DEFAULT 0 
  
 EOD;
   parent::dbInstall($data);
