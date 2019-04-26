@@ -23,10 +23,10 @@ $count=0;
 foreach($directories as $list){
     $files = $upnpmediaserver->browsexmlfiles($list['id']);
     foreach($files as $file){
-        DebMes ($file ['link']);
-        DebMes ($file ['title']);
-        DebMes ($file ['genre']);
-        DebMes ($file ['creator']);
+        //DebMes ($file ['link']);
+        //DebMes ($file ['title']);
+        //DebMes ($file ['genre']);
+        //DebMes ($file ['creator']);
         $Record = SQLSelectOne("SELECT * FROM upnpmediaservers_playlist WHERE TITLE='".$file ['title']."'");
         $Record['URL_LINK'] = $file ['link'];
         $tcode = mb_detect_encoding($file ['title']);
