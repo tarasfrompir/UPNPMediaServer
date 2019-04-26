@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__FILE__)."/classes_for_addons/UPNPMediaServer.class.php");
+require_once(dirname(__FILE__)."/classes_for_addons/UPNPMediaServer.php");
 
 // массивы для определения типов файлов
 $video = [".3g2",".3gp",".3gp2",".3gpp",".3gpp2",".asf",".asx",".avi",".bin",".dat",".drv",".f4v",".flv",".gtp",".h264",".m4v",".mkv",".mod",".moov",".mov",".mp4",".mpeg",".mpg",".mts",".rm",".rmvb",".spl",".srt",".stl",".swf",".ts",".vcd",".vid",".vid",".vid",".vob",".webm",".wm",".wmv",".yuv"];
