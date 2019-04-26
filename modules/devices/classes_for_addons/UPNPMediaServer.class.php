@@ -6,11 +6,11 @@ class UPNPMediaserver
         $this->upnpaddress = $upnpaddress;
         $this->upnpcontroll  = $this->upnpcontroll;
         if (!$this->upnpcontroll) {
-			$this->searchupnpcontroll($this->upnpaddress);
-		}
-		$this->baseUrl = $this->baseFormUrl($this->upnpcontroll);
+	    $this->searchupnpcontroll($this->upnpaddress);
+	}
+	$this->baseUrl = $this->baseFormUrl($this->upnpcontroll);
         
-		$ch = curl_init();
+	$ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->upnpcontroll);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -19,14 +19,14 @@ class UPNPMediaserver
         $xml = simplexml_load_string($content);
         curl_close($ch);
 
-		if (!$xml) {
-			$this->searchupnpcontroll($this->upnpaddress);
-		}
+	if (!$xml) {
+	    $this->searchupnpcontroll($this->upnpaddress);
+	}
 
         foreach($xml->device->serviceList->service as $service){
             if($service->serviceId == 'urn:upnp-org:serviceId:ContentDirectory'){
                 $this->ctrlurl = ($this->baseUrl.$service->controlURL);
-				$this->service_type =''.$service->serviceType;
+		$this->service_type =''.$service->serviceType;
             }
         }
     }
