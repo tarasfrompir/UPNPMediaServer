@@ -124,14 +124,17 @@ private function sendRequestToDevice ($command, $arguments) {
             'SOAPAction: "' . $this->service_type . '#' . $command . '"',
         );
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_URL, $this->ctrlurl);
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+  curl_setopt($ch, CURLOPT_URL, $this->ctrlurl );
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+  curl_setopt($ch, CURLOPT_TIMEOUT,        10);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt($ch, CURLOPT_POST,           true );
+  curl_setopt($ch, CURLOPT_POSTFIELDS,     $body);
+  curl_setopt($ch, CURLOPT_HTTPHEADER,     $header);
         $response = curl_exec($ch);
-        curl_close($ch);
+        curl_close($ch);;
         return $response;
     }
     // функция получения CONTROL_ADDRESS при его отсутствии или его ге правильности
