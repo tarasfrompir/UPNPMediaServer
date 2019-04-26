@@ -2,7 +2,7 @@ modules/devices/UPNPMediaServer_getFileList.php
 modules/devices/classes_for_addons/UPNPMediaServer.php
 modules/devices/addons/UPNPMediaServer_commands.php
 modules/devices/addons/UPNPMediaServer_structure.php
-templates/classes/views/SUPNPMediaServer.html
+templates/classes/views/UPNPMediaServer.html
 languages/UPNPMediaServer_ru.php
 languages/UPNPMediaServer_ua.php
 languages/UPNPMediaServer_default.php
