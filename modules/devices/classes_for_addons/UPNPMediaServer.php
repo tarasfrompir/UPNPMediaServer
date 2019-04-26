@@ -42,8 +42,8 @@ class UPNPMediaserver
                 $alldirectories = array_merge($alldirectories, $response);
             }
         }
-		//DebMes($alldirectories);
-		return $alldirectories;
+	//DebMes($alldirectories);
+	return $alldirectories;
         
     }
  
@@ -87,22 +87,21 @@ class UPNPMediaserver
         $files = array();
         $items = $doc->getElementsByTagName('item');
         foreach($items as $i=>$item){
-          $link=$item->getElementsByTagName( "res" );
-          $link = $link->item(0)->nodeValue;
-          $title=$item->getElementsByTagName( "title" );
-          $title = $title->item(0)->nodeValue;   
-          $creator=$item->getElementsByTagName( "creator" );
-          $creator = $creator->item(0)->nodeValue;
-          $genre=$item->getElementsByTagName( "genre" );
-          $genre = $genre->item(0)->nodeValue;      
-          $files[$i]['genre'] = $genre;
-          $files[$i]['link'] = $link;
-          $files[$i]['title'] = $title;
-          $files[$i]['creator'] = $creator;
-
+            $link=$item->getElementsByTagName( "res" );
+            $link = $link->item(0)->nodeValue;
+            $title=$item->getElementsByTagName( "title" );
+            $title = $title->item(0)->nodeValue;   
+            $creator=$item->getElementsByTagName( "creator" );
+            $creator = $creator->item(0)->nodeValue;
+            $genre=$item->getElementsByTagName( "genre" );
+            $genre = $genre->item(0)->nodeValue;      
+            $files[$i]['genre'] = $genre;
+            $files[$i]['link'] = $link;
+            $files[$i]['title'] = $title;
+            $files[$i]['creator'] = $creator;
         }
-     return $files;
- }
+        return $files;
+    }
 private function sendRequestToDevice ($command, $arguments) {
         $body = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>'."\r\n";
         $body.= '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">';
@@ -124,15 +123,15 @@ private function sendRequestToDevice ($command, $arguments) {
             'SOAPAction: "' . $this->service_type . '#' . $command . '"',
         );
         $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $this->ctrlurl );
-  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-  curl_setopt($ch, CURLOPT_TIMEOUT,        10);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-  curl_setopt($ch, CURLOPT_POST,           true );
-  curl_setopt($ch, CURLOPT_POSTFIELDS,     $body);
-  curl_setopt($ch, CURLOPT_HTTPHEADER,     $header);
+        curl_setopt($ch, CURLOPT_URL, $this->ctrlurl );
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT,        10);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_POST,           true );
+        curl_setopt($ch, CURLOPT_POSTFIELDS,     $body);
+        curl_setopt($ch, CURLOPT_HTTPHEADER,     $header);
         $response = curl_exec($ch);
         curl_close($ch);;
         return $response;
@@ -184,8 +183,8 @@ private function sendRequestToDevice ($command, $arguments) {
         } while(!is_null($buf));
         socket_close($socket);
         $this->upnpcontroll = str_ireplace("Location:", "", $response);
-		//DebMes ($this->upnpcontroll);
-		return $this->upnpcontroll;
+	//DebMes ($this->upnpcontroll);
+	return $this->upnpcontroll;
     } 
 	// получает айпи адрес с портом или без 
     private function baseFormUrl($url)
