@@ -1,0 +1,26 @@
+<div name="%.object_title%main" style="width:344px; text-align:center; align:center; font-family: monospace; border: 3px solid #4682B4; border-radius: 10px;">
+  <div class="device-details" style="font-size: 150%; text-align:center; font-family: monospace; ">
+   <p>
+    <button style='display:%.alive|"none;block;none;"%;float:right;font-size: 50%; font-family: monospace;'><span class="glyphicon glyphicon-ok"></span></span></button>
+    <button style='display:%.alive|"block;none;block;"%;float:right;font-size: 50%; font-family: monospace;'><span class="glyphicon glyphicon-remove"></span></button>
+    %.object_description%
+ </p>
+
+  </div>
+  <div class="group"> 
+   <button onClick='callMethod("%.object_title%.getFileList"); return %.object_title%();' class="btn btn-custom">
+    <span title="Get filelist" id="Get filelist" class="glyphicon glyphicon-list-alt aligned"> Получить список файлов</span>
+   </button> 
+  </div>
+   <div id="%.object_title%" style="display: none;">%.havedfiles% - файлов обработано.</div>
+</div>
+<!--- скрипт формирования отчета --->         
+<script type = "text/javascript">
+
+function %.object_title%(){
+  setTimeout(function(){$('#%.object_title%').fadeIn()}, 1000);  
+document.getElementById("%.object_title%").style.display = "block";
+  setTimeout(function(){$('#%.object_title%').fadeOut()}, 3000);
+};
+
+</script>
