@@ -23,13 +23,14 @@ $count=0;
 foreach($directories as $list){
     $files = $upnpmediaserver->browsexmlfiles($list['id']);
     foreach($files as $file){
+	$title = mysql_real_escape_string($file ['title']);
         //DebMes ($file ['link']);
         //DebMes ($file ['title']);
         //DebMes ($file ['genre']);
         //DebMes ($file ['creator']);
-        $Record = SQLSelectOne("SELECT * FROM upnpmediaservers_playlist WHERE TITLE='".$file ['title']."'");
+        $Record = SQLSelectOne("SELECT * FROM upnpmediaservers_playlist WHERE TITLE='".$title."'");
         $Record['URL_LINK'] = $file ['link'];
-        $tcode = mb_detect_encoding($file ['title']);
+        $tcode = mb_detect_encoding($title);
         $Record['TITLE'] = iconv($tcode, "UTF-8", $file ['title']);
         $Record['DESCRIPTION'] = $file ['creator'];
         $ext_file = substr(strrchr($file ['link'], "."),0);
