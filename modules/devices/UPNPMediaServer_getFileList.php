@@ -23,7 +23,7 @@ $count=0;
 foreach($directories as $list){
     $files = $upnpmediaserver->browsexmlfiles($list['id']);
     foreach($files as $file){
-	$title = mysql_real_escape_string($file ['title']);
+	$title = mysqli_real_escape_string($file ['title']);
         //DebMes ($file ['link']);
         //DebMes ($file ['title']);
         //DebMes ($file ['genre']);
