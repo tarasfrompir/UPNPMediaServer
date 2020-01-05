@@ -11,8 +11,8 @@
             'isActivity'=>array('DESCRIPTION'=>LANG_DEVICES_IS_ACTIVITY,'_CONFIG_TYPE'=>'yesno','_CONFIG_HELP'=>'SdIsActivity'),
             //my adds
             'UPNPADDRESS'=>array('DESCRIPTION'=>'IP адрес UPNP устройства', '_CONFIG_TYPE'=>'text', 'KEEP_HISTORY'=>0, 'DATA_KEY'=>1),
-            'UPNPCONTROLL'=>array('DESCRIPTION'=>'Адрес управления UPNP устройством', 'KEEP_HISTORY'=>0, 'DATA_KEY'=>1),
-			'getFileList'=>array('DESCRIPTION'=>'При изменении Получает список файлов на устройстве', 'KEEP_HISTORY'=>1, 'ONCHANGE'=>'getFileList', 'DATA_KEY'=>1),
+            'UPNP_CONTROL_ADDRESS'=>array('DESCRIPTION'=>'Адрес управления UPNP устройством', 'KEEP_HISTORY'=>0, 'DATA_KEY'=>1),
+            'getFileList'=>array('DESCRIPTION'=>'При изменении Получает список файлов на устройстве', 'KEEP_HISTORY'=>1, 'ONCHANGE'=>'getFileList', 'DATA_KEY'=>1),
        ),
         'METHODS'=>array(
             'getFileList'=>array('DESCRIPTION'=>'Получает список файлов на устройстве'),
