@@ -77,13 +77,14 @@ function __construct() {
 */
  function dbInstall($data) {
  $data = <<<EOD
- upnpmediaservers_playlist: ID int(255) unsigned NOT NULL auto_increment
- upnpmediaservers_playlist: TITLE varchar(100) NOT NULL DEFAULT ''
- upnpmediaservers_playlist: DESCRIPTION varchar(300) NOT NULL DEFAULT ''
- upnpmediaservers_playlist: GENRE varchar(50) NOT NULL DEFAULT ''
- upnpmediaservers_playlist: URL_LINK varchar(250) NOT NULL DEFAULT ''
- upnpmediaservers_playlist: LINKED_OBJECT varchar(100) NOT NULL DEFAULT ''
- upnpmediaservers_playlist: FAVORITE int(3) unsigned NOT NULL DEFAULT 0 
+ mediaservers_playlist: ID int(255) unsigned NOT NULL auto_increment
+ mediaservers_playlist: TITLE varchar(100) NOT NULL DEFAULT ''
+ mediaservers_playlist: DESCRIPTION varchar(300) NOT NULL DEFAULT ''
+ mediaservers_playlist: GENRE varchar(50) NOT NULL DEFAULT ''
+ mediaservers_playlist: URL_LINK varchar(250) NOT NULL DEFAULT ''
+ mediaservers_playlist: LINKED_OBJECT varchar(100) NOT NULL DEFAULT ''
+ mediaservers_playlist: PLAYLIST_NAME varchar(100) NOT NULL DEFAULT ''
+ mediaservers_playlist: FAVORITE int(1) unsigned NOT NULL DEFAULT 0 
 EOD;
   parent::dbInstall($data);
  }
