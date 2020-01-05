@@ -7,11 +7,11 @@ $video = [".3g2",".3gp",".3gp2",".3gpp",".3gpp2",".asf",".asx",".avi",".bin",".d
 $audio = [".aac",".ac3",".aif",".aiff",".amr",".aob",".ape",".asf",".aud",".aud",".aud",".aud",".awb",".bin",".bwg",".cdr",".flac",".gpx",".ics",".iff",".m",".m3u",".m3u8",".m4a",".m4b",".m4p",".m4r",".mid",".midi",".mod",".mp3",".mp3",".mp3",".mpa",".mpp",".msc",".msv",".mts",".nkc",".ogg",".ps",".ra",".ram",".sdf",".sib",".sln",".spl",".srt",".srt",".temp",".vb",".wav",".wav",".wave",".wm",".wma",".wpd",".xsb",".xwb"];
 
 $upnpaddress = $this->getProperty("UPNPADDRESS");
-$upnpcontroll = $this->getProperty("UPNPCONTROLL");
+$upnpcontroll = $this->getProperty("UPNP_CONTROL_ADDRESS");
 $upnpmediaserver = new UPNPMediaserver($upnpaddress, $upnpcontroll);
 //если нету контроладреса то вносим его
 if (!$upnpcontroll){
-	$this->setProperty('UPNPCONTROLL', $upnpmediaserver->searchupnpcontroll($upnpaddress));
+	$this->setProperty('UPNP_CONTROL_ADDRESS', $upnpmediaserver->searchupnpcontroll($upnpaddress));
 }
 // сканируем файлы
 $directories = $upnpmediaserver->browse();
