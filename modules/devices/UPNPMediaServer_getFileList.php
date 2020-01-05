@@ -28,7 +28,7 @@ foreach($directories as $list){
         //DebMes ($file ['title']);
         //DebMes ($file ['genre']);
         //DebMes ($file ['creator']);
-        $Record = SQLSelectOne("SELECT * FROM upnpmediaservers_playlist WHERE TITLE='".$title."'");
+        $Record = SQLSelectOne("SELECT * FROM mediaservers_playlist WHERE TITLE='".$title."'");
         $Record['URL_LINK'] = $file ['link'];
         $tcode = mb_detect_encoding($title);
         $Record['TITLE'] = iconv($tcode, "UTF-8", $file ['title']);
@@ -42,7 +42,7 @@ foreach($directories as $list){
             $Record['GENRE'] = 'Изображения';
         };
         $Record['LINKED_OBJECT'] = $this->description;
-        SQLUpdateInsert('upnpmediaservers_playlist', $Record);
+        SQLUpdateInsert('mediaservers_playlist', $Record);
         $count = $count+1;
         
     }
