@@ -64,7 +64,7 @@ function __construct() {
      SQLExec("DELETE FROM classes WHERE TITLE='".$this->name . "'");
    }
     // delete all tables 
-  SQLExec('DROP TABLE IF EXISTS upnpmediaservers_playlist');
+  SQLExec('DROP TABLE IF EXISTS  mediaservers_playlist');
 
   parent::uninstall();
  }
