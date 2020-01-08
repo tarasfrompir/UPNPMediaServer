@@ -40,7 +40,7 @@ foreach($directories as $list){
         }else if (in_array($ext_file, $audio)) {
             $Record['TYPE'] = 'Аудио';
         }else {
-            $Record['TYPE'] = 'Изображения';
+            $Record['TYPE'] = 'Изображение';
         };
         $Record['LINKED_OBJECT'] = $this->description;
         SQLUpdateInsert('mediaservers_playlist', $Record);
