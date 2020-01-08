@@ -33,13 +33,14 @@ foreach($directories as $list){
         $tcode = mb_detect_encoding($title);
         $Record['TITLE'] = iconv($tcode, "UTF-8", $file ['title']);
         $Record['DESCRIPTION'] = $file ['creator'];
+	$Record['GENRE'] = $file ['genre'];
         $ext_file = substr(strrchr($file ['link'], "."),0);
         if (in_array($ext_file, $video)) {
-            $Record['GENRE'] = 'Видео';
+            $Record['TYPE'] = 'Видео';
         }else if (in_array($ext_file, $audio)) {
-            $Record['GENRE'] = 'Аудио';
+            $Record['TYPE'] = 'Аудио';
         }else {
-            $Record['GENRE'] = 'Изображения';
+            $Record['TYPE'] = 'Изображения';
         };
         $Record['LINKED_OBJECT'] = $this->description;
         SQLUpdateInsert('mediaservers_playlist', $Record);
