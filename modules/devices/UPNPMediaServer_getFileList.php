@@ -49,4 +49,3 @@ foreach($directories as $list){
    }
 $this->setProperty("havedfiles",$count);
 echo ('получено файлов - '.$count);
-
