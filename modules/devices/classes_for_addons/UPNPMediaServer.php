@@ -350,15 +350,15 @@ private function sendRequestToDevice ($command, $arguments) {
         
         socket_sendto($socket, $request, strlen($request), 0, $ip, 1900);
 		//search ver2
-        $request  = 'M-SEARCH * HTTP/1.1'."\r\n";
-        $request .= 'HOST: 239.255.255.250:1900'."\r\n";
-        $request .= 'MAN: "ssdp:discover"'."\r\n";
-        $request .= 'MX: 2'."\r\n";
-        $request .= 'ST: urn:schemas-upnp-org:service:ContentDirectory:2'."\r\n";
-        $request .= 'USER-AGENT: Majordomo/ver-x.x UDAP/2.0 Win/7'."\r\n";
-        $request .= "\r\n";
+        //$request  = 'M-SEARCH * HTTP/1.1'."\r\n";
+        //$request .= 'HOST: 239.255.255.250:1900'."\r\n";
+        //$request .= 'MAN: "ssdp:discover"'."\r\n";
+        //$request .= 'MX: 2'."\r\n";
+        //$request .= 'ST: urn:schemas-upnp-org:service:ContentDirectory:2'."\r\n";
+        //$request .= 'USER-AGENT: Majordomo/ver-x.x UDAP/2.0 Win/7'."\r\n";
+        //$request .= "\r\n";
         
-        socket_sendto($socket, $request, strlen($request), 0, $ip, 1900);
+        //socket_sendto($socket, $request, strlen($request), 0, $ip, 1900);
         // send the data from socket
         socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, array('sec'=>'5', 'usec'=>'0'));
         $response = array();
@@ -378,7 +378,7 @@ private function sendRequestToDevice ($command, $arguments) {
         } while(!is_null($buf));
         socket_close($socket);
         $this->upnpcontroll = str_ireplace("Location:", "", $response);
-	//DebMes ($this->upnpcontroll);
+	DebMes ($this->upnpcontroll);
 	return $this->upnpcontroll;
     } 
 	// получает айпи адрес с портом или без 
