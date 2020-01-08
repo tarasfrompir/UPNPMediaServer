@@ -82,6 +82,7 @@ function __construct() {
  mediaservers_playlist: DESCRIPTION varchar(300) NOT NULL DEFAULT ''
  mediaservers_playlist: GENRE varchar(50) NOT NULL DEFAULT ''
  mediaservers_playlist: URL_LINK varchar(250) NOT NULL DEFAULT ''
+ mediaservers_playlist: TYPE varchar(100) NOT NULL DEFAULT ''
  mediaservers_playlist: LINKED_OBJECT varchar(100) NOT NULL DEFAULT ''
  mediaservers_playlist: PLAYLIST_NAME varchar(100) NOT NULL DEFAULT ''
  mediaservers_playlist: FAVORITE int(1) unsigned NOT NULL DEFAULT 0 
