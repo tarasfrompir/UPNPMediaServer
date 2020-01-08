@@ -31,7 +31,11 @@ foreach($directories as $list){
         $Record = SQLSelectOne("SELECT * FROM mediaservers_playlist WHERE TITLE='".$title."'");
         $Record['URL_LINK'] = $file ['link'];
         $tcode = mb_detect_encoding($title);
-        $Record['TITLE'] = iconv($tcode, "UTF-8", $file ['title']);
+        if  ($file ['title']) {
+            $Record['TITLE'] = iconv($tcode, "UTF-8", $file ['title']);
+	} else {
+	     $Record['TITLE'] = $file ['creator'];
+	}
         $Record['DESCRIPTION'] = $file ['creator'];
 	$Record['GENRE'] = $file ['genre'];
         $ext_file = substr(strrchr($file ['link'], "."),0);
