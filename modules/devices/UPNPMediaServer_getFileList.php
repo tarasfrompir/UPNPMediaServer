@@ -37,7 +37,11 @@ foreach($directories as $list){
 	     $Record['TITLE'] = $file ['creator'];
 	}
         $Record['DESCRIPTION'] = $file ['creator'];
-	$Record['GENRE'] = $file ['genre'];
+	if ($file ['genre']) {
+	    $Record['GENRE'] = $file ['genre'];
+	} else {
+		$Record['GENRE'] = 'None';
+	}
         $ext_file = substr(strrchr($file ['link'], "."),0);
         if (in_array($ext_file, $video)) {
             $Record['TYPE'] = 'Видео';
