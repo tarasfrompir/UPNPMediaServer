@@ -23,19 +23,22 @@ SQLExec("DELETE FROM mediaservers_playlist WHERE LINKED_OBJECT='".$this->descrip
 foreach($directories as $list){
     $files = $upnpmediaserver->browsexmlfiles($list['id']);
     foreach($files as $file){
-	$title = mysqli_real_escape_string($file ['title']);
-        //DebMes ($file ['link']);
+	    //DebMes ($file ['title']);
         //DebMes ($file ['title']);
         //DebMes ($file ['genre']);
         //DebMes ($file ['creator']);
-        $Record = SQLSelectOne("SELECT * FROM mediaservers_playlist WHERE TITLE='".$title."'");
+        $tcode = mb_detect_encoding($file ['title']);
+        //DebMes($tcode);
+        if  ($file ['title'] ) {
+            if ($tcode != 'UTF-8') {
+                $file ['title'] = iconv($tcode, "UTF-8", $file ['title']);
+            }
+    	} else {
+	        $file ['title'] = $file ['creator'];
+	    }
+        $Record = SQLSelectOne("SELECT * FROM mediaservers_playlist WHERE TITLE='".$file ['title']."'");
+        $Record['TITLE'] = $file ['title'];
         $Record['URL_LINK'] = $file ['link'];
-        $tcode = mb_detect_encoding($title);
-        if  ($file ['title'] != '') {
-            $Record['TITLE'] = iconv($tcode, "UTF-8", $file ['title']);
-	} else {
-	    $Record['TITLE'] = $file ['creator'];
-	}
         $Record['DESCRIPTION'] = $file ['creator'];
 	if ($file ['genre']) {
 	    $Record['GENRE'] = $file ['genre'];
