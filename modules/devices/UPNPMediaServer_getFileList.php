@@ -3,7 +3,7 @@
 require_once(dirname(__FILE__)."/classes_for_addons/UPNPMediaServer.php");
 
 // массивы для определения типов файлов
-$video = [".3g2",".3gp",".3gp2",".3gpp",".3gpp2",".asf",".asx",".avi",".bin",".dat",".drv",".f4v",".flv",".gtp",".h264",".m4v",".mkv",".mod",".moov",".mov",".mp4",".mpeg",".mpg",".mts",".rm",".rmvb",".spl",".srt",".stl",".swf",".ts",".vcd",".vid",".vid",".vid",".vob",".webm",".wm",".wmv",".yuv"];
+$video = [".3g2",".3gp",".3gp2",".3gpp",".3gpp2",".asf",".asx",".avi",".bin",".dat",".drv",".f4v",".flv",".gtp",".h264",".m4v",".mkv",".mod",".moov",".mov",".mp4",".mpeg",".mpg",".mts",".rm",".rmvb",".spl",".srt",".stl",".swf",".ts",".vcd",".vid",".vid",".vid",".vob",".webm",".wm",".wmv",".yuv", ".wtv"];
 $audio = [".aac",".ac3",".aif",".aiff",".amr",".aob",".ape",".asf",".aud",".aud",".aud",".aud",".awb",".bin",".bwg",".cdr",".flac",".gpx",".ics",".iff",".m",".m3u",".m3u8",".m4a",".m4b",".m4p",".m4r",".mid",".midi",".mod",".mp3",".mp3",".mp3",".mpa",".mpp",".msc",".msv",".mts",".nkc",".ogg",".ps",".ra",".ram",".sdf",".sib",".sln",".spl",".srt",".srt",".temp",".vb",".wav",".wav",".wave",".wm",".wma",".wpd",".xsb",".xwb"];
 
 $upnpaddress = $this->getProperty("UPNPADDRESS");
